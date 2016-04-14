@@ -1,0 +1,18 @@
+﻿@using WarplainsDomain.Entities
+@model IQueryable<Warplane>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>title</h2>
+@foreach (var p in Model)
+{
+    <div class="item">
+        <h3>@p.Name</h3>
+        @p.Description
+        <img width="200" src="@Url.Content(p.PlaneImageUrl)" alt="Image" />
+        <h4>@p.Generation.ToString()</h4>
+    </div>
+}
