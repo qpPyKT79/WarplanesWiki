@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WarplainsDomain.Abstract;
+using WarplanesWiki.Models;
 
 namespace WarplanesWiki.Controllers
 {
@@ -11,16 +12,36 @@ namespace WarplanesWiki.Controllers
     {
 
         private IWarplaneRepository repository;
+        public int PageSize = 1;
 
         public WarplaneController(IWarplaneRepository productRepository)
         {
             this.repository = productRepository;
         }
 
-        public ViewResult List()
+        //public ViewResult List()
+        //{
+        //    return View(repository.Warplanes);
+        //}
+        public ViewResult List(int category, string country, int page = 1)
         {
-            return View(repository.Warplanes);
+            var model = new WarplanesListViewModel
+            {
+                Warplanes = repository.Warplanes
+                    .Where(p => p.Category == (WarplainsDomain.Entities.WarplaneCategoty)category)
+                    .Where(p => p.Country == country || country == "")
+                    .OrderBy(p => p.WarplaneID)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = repository.Warplanes.Count()
+                },
+                CurrentPlaneCategory = category
+            };
+            return View(model);
         }
-
     }
 }

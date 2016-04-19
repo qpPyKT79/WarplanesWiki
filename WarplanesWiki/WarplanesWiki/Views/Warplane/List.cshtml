@@ -1,19 +1,21 @@
 ﻿@using WarplainsDomain.Entities
-@model IQueryable<Warplane>
+@model WarplanesWiki.Models.WarplanesListViewModel
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Title";
     Layout = "../Shared/_Layout.cshtml";
 }
-
-<h2>title</h2>
-@foreach (var p in Model)
+<p></p>
+@foreach (var p in Model.Warplanes)
 {
     <div class="item">
         <h3>@p.Name</h3>
         @p.Description
-        <br />
-        <img width="200" src="@Url.Content(p.PlaneImageUrl)" alt="Image" />
+        <br/>
+        <img width="200" src="@Url.Content(p.PlaneImageUrl)" alt="Image"/>
         <h4>@p.Generation.ToString()</h4>
+    </div>
+    <div class="pager">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new {page = x}))
     </div>
 }
