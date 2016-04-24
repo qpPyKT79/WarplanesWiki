@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\NavigationControllerTest.cs" />
     <Compile Include="Controllers\WarrplaneControllerTest.cs" />
     <Compile Include="HTMLHelpers\PagingInfoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

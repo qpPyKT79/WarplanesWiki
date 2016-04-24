@@ -1,0 +1,10 @@
+﻿@using WarplainsDomain.Helpers
+@model WarplainsDomain.Entities.Warplane
+
+<div class="item">
+    <h3>@Model.Name</h3>
+    @Model.Description
+    <br />
+    <img width="200" src="@Url.Content(Model.PlaneImageUrl)" alt="Image" />
+    <h4>Поколение: @Model.Generation.Description()</h4>
+</div>

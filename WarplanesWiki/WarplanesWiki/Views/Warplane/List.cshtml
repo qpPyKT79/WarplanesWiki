@@ -5,17 +5,11 @@
     ViewBag.Title = "Title";
     Layout = "../Shared/_Layout.cshtml";
 }
-<p></p>
 @foreach (var p in Model.Warplanes)
 {
-    <div class="item">
-        <h3>@p.Name</h3>
-        @p.Description
-        <br/>
-        <img width="200" src="@Url.Content(p.PlaneImageUrl)" alt="Image"/>
-        <h4>@p.Generation.ToString()</h4>
-    </div>
-    <div class="pager">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new {page = x}))
-    </div>
+    Html.RenderPartial("WarplaneSummary", p);
+    
 }
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentPlaneCategory }))
+</div>

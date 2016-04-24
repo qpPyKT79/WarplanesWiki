@@ -54,6 +54,7 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFWarplaneRepository.cs" />
     <Compile Include="Entities\Warplane.cs" />
+    <Compile Include="Helpers\ReflectionHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

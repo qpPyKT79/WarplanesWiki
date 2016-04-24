@@ -12,7 +12,7 @@ namespace WarplanesWiki.Controllers
     {
 
         private IWarplaneRepository repository;
-        public int PageSize = 1;
+        public int PageSize = 2;
 
         public WarplaneController(IWarplaneRepository productRepository)
         {
@@ -23,21 +23,22 @@ namespace WarplanesWiki.Controllers
         //{
         //    return View(repository.Warplanes);
         //}
-        public ViewResult List(int category, string country, int page = 1)
+        public ViewResult List(int category = 0, string country = (string)null, int page = 1)
         {
+            var warplanes = repository.Warplanes
+                .Where(p => p.Category == (WarplainsDomain.Entities.WarplaneCategoty) category || category == 0)
+                .Where(p => p.Country == country || country == (string) null)
+                .OrderBy(p => p.WarplaneID);
             var model = new WarplanesListViewModel
             {
-                Warplanes = repository.Warplanes
-                    .Where(p => p.Category == (WarplainsDomain.Entities.WarplaneCategoty)category)
-                    .Where(p => p.Country == country || country == "")
-                    .OrderBy(p => p.WarplaneID)
-                    .Skip((page - 1) * PageSize)
-                    .Take(PageSize),
+                Warplanes = warplanes
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = repository.Warplanes.Count()
+                    TotalItems = warplanes.Count()
                 },
                 CurrentPlaneCategory = category
             };
