@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WarplanesWiki.Binders;
 using WarplanesWiki.Infrastrructure;
+using WarplanesWiki.Models;
 
 namespace WarplanesWiki
 {
@@ -18,6 +20,7 @@ namespace WarplanesWiki
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+            ModelBinders.Binders.Add(typeof(Comparison), new ComparisonModelBinder());
         }
     }
 }

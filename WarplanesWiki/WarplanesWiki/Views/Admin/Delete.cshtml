@@ -1,0 +1,176 @@
+﻿@model WarplainsDomain.Entities.Warplane
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Warplane</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaneImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaneImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Crew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crew)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wingspan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wingspan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WingArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WingArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmptyWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmptyWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximumWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuelWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuelWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EngineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EngineDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EngineWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EngineWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaximumSpeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaximumSpeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ceiling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ceiling)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

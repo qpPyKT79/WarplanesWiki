@@ -10,5 +10,7 @@ namespace WarplainsDomain.Abstract
     public interface IWarplaneRepository
     {
         IQueryable<Warplane> Warplanes { get; }
+        void SavePlane(Warplane plane);
+        void RemovePlane(int id);
     }
 }

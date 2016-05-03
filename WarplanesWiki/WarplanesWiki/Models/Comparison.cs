@@ -19,10 +19,6 @@ namespace WarplanesWiki.Models
 
         public void Clear() => PlaneCollection.Clear();
 
-        public HashSet<Warplane> Planes
-        {
-            get { return PlaneCollection; }
-        }
-
+        public HashSet<Warplane> Planes => PlaneCollection;
     }
 }

@@ -1,0 +1,37 @@
+﻿@model WarplanesWiki.Models.ComparisonIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table width="90%" align="center">
+    <thead>
+        <tr>
+            <th align="center">Quantity</th>
+            <th align="left">Item</th>
+            <th align="right">Price</th>
+            <th align="right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.CompareCollection.Planes)
+        {
+            <tr>
+                <td align="center">@line.Category</td>
+                <td align="left">@line.Name</td>
+                <td align="right">@line.Country</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" align="right">Total:</td>
+            <td align="right">
+                wtf is this
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<p align="center" class="actionButtons">
+    <a href="@Model.ReturnUrl">Назад</a>
+</p>

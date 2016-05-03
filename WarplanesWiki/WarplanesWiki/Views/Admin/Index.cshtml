@@ -1,0 +1,141 @@
+﻿@model IEnumerable<WarplainsDomain.Entities.Warplane>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Crew)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wingspan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WingArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmptyWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaximumWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngineName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngineDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngineWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaximumSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxRange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ceiling)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaneImageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Crew)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wingspan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WingArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmptyWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximumWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EngineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EngineDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EngineWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaximumSpeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ceiling)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WarplaneID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WarplaneID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WarplaneID })
+        </td>
+    </tr>
+}
+
+</table>

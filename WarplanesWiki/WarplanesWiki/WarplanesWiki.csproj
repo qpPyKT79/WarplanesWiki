@@ -175,7 +175,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Binders\ComparisonModelBinder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ComparingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WarplaneController.cs" />
@@ -186,11 +189,12 @@
     <Compile Include="Infrastrructure\NinjectControllerFactory.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comparison.cs" />
+    <Compile Include="Models\ComparisonIndexViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Models\PagingInfo.cs" />
-    <Compile Include="Models\ProductsListViewModel.cs" />
+    <Compile Include="Models\WarplaneListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -252,10 +256,16 @@
     <Content Include="Views\Warplane\List.cshtml" />
     <Content Include="Views\Shared\WarplaneSummary.cshtml" />
     <Content Include="Views\Navigation\Menu.cshtml" />
+    <Content Include="Views\Comparing\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Warplane\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Navifation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

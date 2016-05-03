@@ -40,7 +40,7 @@ namespace WarplanesWiki.Tests.Controllers
         [Test]
         public void Can_Send_Pagination_View_Model()
         {
-            var result = (WarplanesListViewModel) sutController.List(0, "", 2).Model;
+            var result = (WarplanesListViewModel) sutController.List(page: 2).Model;
             // Assert
             PagingInfo pageInfo = result.PagingInfo;
             Assert.AreEqual(pageInfo.CurrentPage, 2);
@@ -52,7 +52,7 @@ namespace WarplanesWiki.Tests.Controllers
         [Test]
         public void Can_Paginate()
         {
-            var result = ((WarplanesListViewModel) sutController.List(0, "", 2).Model).Warplanes.ToArray();
+            var result = ((WarplanesListViewModel) sutController.List( page: 2).Model).Warplanes.ToArray();
             Assert.IsTrue(result.Length == 2);
             Assert.AreEqual(result[0].Name, "P4");
             Assert.AreEqual(result[1].Name, "P5");
@@ -61,8 +61,7 @@ namespace WarplanesWiki.Tests.Controllers
         [Test]
         public void Can_Filter_Products()
         {
-            var result = ((WarplanesListViewModel) sutController.List(1, "", 1).Model).Warplanes.ToArray();
-            // Assert
+            var result = ((WarplanesListViewModel) sutController.List().Model).Warplanes.ToArray();
             Assert.AreEqual(result.Length, 2);
             Assert.IsTrue(result[0].Name == "P2" && result[0].Category == WarplaneCategoty.Hedgehopper);
             Assert.IsTrue(result[1].Name == "P4" && result[1].Category == WarplaneCategoty.Hedgehopper);

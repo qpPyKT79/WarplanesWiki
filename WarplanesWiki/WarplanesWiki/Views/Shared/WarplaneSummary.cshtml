@@ -2,9 +2,22 @@
 @model WarplainsDomain.Entities.Warplane
 
 <div class="item">
-    <h3>@Model.Name</h3>
+    
+    @Html.RouteLink(@Model.Name, new
+{
+    controller = "Warplane",
+    action = "Details",
+    id = (int)@Model.WarplaneID
+})
+
     @Model.Description
-    <br />
-    <img width="200" src="@Url.Content(Model.PlaneImageUrl)" alt="Image" />
+    <br/>
+    <img width="200" src="@Url.Content(Model.PlaneImageUrl)" alt="Image"/>
     <h4>Поколение: @Model.Generation.Description()</h4>
+    @using (Html.BeginForm("AddToCompare", "Comparing"))
+    {
+        @Html.HiddenFor(x => x.WarplaneID)
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" value="+ Добавить к сравнению"/>
+    }
 </div>

@@ -3,7 +3,7 @@
 @model IQueryable<WarplaneCategoty>
 
 
-@Html.ActionLink("Home", "List", "Warplane")
+@Html.ActionLink("Главная", "List", "Warplane")
 @foreach (var link in Model)
 {
     @Html.RouteLink(link.Description(), new

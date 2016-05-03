@@ -32,6 +32,21 @@ namespace WarplainsDomain.Entities
         public double MaxRange { get; set; } //: 4300 km
         public double FlightDuration { get; set; } //: up to 5.8 x
         public double Ceiling { get; set; } //: 20000 m
+        public override int GetHashCode() => WarplaneID.GetHashCode()*Name.GetHashCode();
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Warplane p = (Warplane)obj;
+                return (Name == p.Name) && (WarplaneID == p.WarplaneID);
+            }
+        }
+
+        public override string ToString() => $"Id: {WarplaneID}, name: {Name}";
     }
     public enum PlaneGeneration
     {

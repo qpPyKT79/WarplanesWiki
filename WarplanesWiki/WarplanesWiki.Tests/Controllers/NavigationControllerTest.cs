@@ -47,8 +47,8 @@ namespace WarplanesWiki.Tests.Controllers
         public void Indicates_Selected_Category()
         {
             var categoryToSelect = WarplaneCategoty.UAV;
-            string result = sutController.Menu((int)categoryToSelect).ViewBag.SelectedCategory;
-            Assert.AreEqual(categoryToSelect, result);
+            var result = sutController.Menu((int)categoryToSelect).ViewBag.SelectedCategory;
+            Assert.AreEqual((int)categoryToSelect, result);
         }
     }
 }
